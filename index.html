@@ -47,6 +47,44 @@
       text-decoration: none;
       color: yellow;
     }
+    header.navbar {
+  background-color: purple;
+  color: wheat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+header.navbar ul li a {
+  color: wheat;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: wheat;
+  cursor: pointer;
+}
 
     /* Intro Section */
     .intro {
@@ -406,16 +444,26 @@ section.contact {
     padding-right: 0;
     margin-bottom: 20px;
   }
-  header.navbar {
-    flex-direction: column;
-    height: auto; /* allow navbar to expand naturally */
-    padding: 15px 20px;
+ .menu-toggle {
+    display: block; /* show hamburger on mobile */
   }
 
-  header.navbar ul {
+  .nav-links {
+    display: none; /* hide menu initially */
     flex-direction: column;
-    gap: 15px;
+    width: 100%;
+    background-color: purple;
     margin-top: 10px;
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* show menu when active */
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
   }
 }
 
@@ -550,6 +598,28 @@ section.contact {
       <li><a href="#contact">Contact Me</a></li>
     </ul>
   </header>
+  <header class="navbar">
+  <div class="logo">MyPortfolio</div>
+  
+  <!-- Hamburger button (only visible on mobile) -->
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#intro">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
 
   <!-- Intro -->
   <div class="intro" id="home">
@@ -724,6 +794,7 @@ section.contact {
 
 </body>
 </html>
+
 
 
 
