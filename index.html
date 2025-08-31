@@ -29,14 +29,13 @@
 
     /* Hamburger button */
     .menu-toggle {
-      display: none;
-      font-size: 28px;
-      background: none;
-      border: none;
-      color: wheat;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: wheat;
+  cursor: pointer;
+}
 
     /* Intro Section */
     .intro { background-color: white; padding: 80px 50px; display: flex; justify-content: center; }
@@ -119,11 +118,27 @@
       .about { flex-direction: column; }
       .about-content { padding-left: 0; }
 
-      .menu-toggle { display: block; }
-      .nav-links { flex-direction: column; width: 100%; background-color: purple; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0; margin-top: 10px; }
-      .nav-links.active { max-height: 400px; padding: 15px 0; }
-      .nav-links li { text-align: center; margin: 10px 0; }
+       .menu-toggle {
+    display: block;
+  }
 
+  .nav-links {
+    display: none; /* hide initially */
+    flex-direction: column;
+    width: 100%;
+    background-color: purple;
+    margin-top: 10px;
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* show menu */
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
       .contact h2 { font-size: 36px; }
       .contact-container { flex-direction: column; align-items: center; }
       .footer { flex-direction: column; gap: 15px; }
@@ -286,10 +301,9 @@
   const navLinks = document.getElementById('nav-links');
 
   menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    if (menuToggle.textContent === "☰") { menuToggle.textContent = "✖"; } 
-    else { menuToggle.textContent = "☰"; }
-  });
+  navLinks.classList.toggle('active');
+  menuToggle.textContent = navLinks.classList.contains('active') ? '✖' : '☰';
+});
 
   // Close mobile menu when link clicked
   navLinks.querySelectorAll('a').forEach(link => {
@@ -312,3 +326,4 @@
 
 </body>
 </html>
+
