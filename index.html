@@ -113,31 +113,44 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .intro { flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
+      .intro { flex-direction: column; align-items: center; padding: 40px 20px; text-align: left; }
       .intro-text { padding-right: 0; margin-bottom: 20px; }
+      .intro-video video{padding-top:30px;}
       .about { flex-direction: column; }
       .about-content { padding-left: 0; }
-
+      .about-img {
+    width: 60%;               /* or any value that looks good */
+    max-width: 250px;         /* prevents it from stretching too much */
+    padding: 10px;            /* optional spacing */
+  }
+      .about-img img {margin-bottom: -30px;max-height: 200px; width: auto;  }
        .menu-toggle {
     display: block;
+    margin-left: auto;
   }
 
   .nav-links {
     display: none; /* hide initially */
     flex-direction: column;
-    width: 100%;
+    position: absolute;     /* overlay mode */
+    top: 70px;              /* below navbar */
+    right: 50px;            /* align with content, adjust as needed */
+    width: auto;            /* only as wide as content */
     background-color: purple;
-    margin-top: 10px;
-    padding: 15px 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    z-index: 1000;
   }
 
   .nav-links.active {
-    display: flex; /* show menu */
+    display: flex;
+     /* show menu */
+    
   }
 
   .nav-links li {
-    text-align: right;
     margin: 10px 0;
+    text-align: left;
   }
       .contact h2 { font-size: 36px; }
       .contact-container { flex-direction: column; align-items: center; }
@@ -149,7 +162,7 @@
 
 <!-- Navbar -->
 <header class="navbar">
-  <div class="logo">MyPortfolio</div>
+  
   <button class="menu-toggle" id="menu-toggle">☰</button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#home">Home</a></li>
