@@ -78,12 +78,20 @@
     /* Portfolio */
 section.portfolio { padding: 60px 30px; text-align: center; } 
     .portfolio h2 { font-size: 50px; margin-bottom: 20px; } 
-    .portfolio-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; } 
-    .project-card { display: flex; flex-direction: column; 
-                   justify-content: space-between; background: #fff;
-                   border-radius: 10px; padding: 20px; 
-                   box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-                    } 
+    .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;   /* centers cards */
+}
+
+.project-card {
+  width: 100%;              /* ensures card fills grid cell */
+  max-width: 350px;         /* prevents overly wide cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
     .project-card img { width: 100%; height: 150px; object-fit: cover; } 
     .project-card .content { padding: 15px; } 
     .project-card .content h4 { margin-bottom: 10px; font-size: 18px; color: purple; } 
@@ -261,11 +269,11 @@ section.portfolio { padding: 60px 30px; text-align: center; }
       </div>
     </div>
     <div class="project-card">
-      <img src="https://www.deskxpand.com/wp-content/uploads/2021/06/Image-Pasted-at-2021-6-8-11-051.png" alt="Project 1">
+      <img src="./assets/kids_platform.jpg" alt="Project 4">
       <div class="content">
-        <h4>Complaint Management System</h4>
-        <p>A system to register, escalate and resolve civic issues using PHP, MySQL and HTML.</p>
-        <button type="button" onclick="openPDF('./assets/my_portfoliopic(new).png')">Check Project</button>
+        <h4>Kids Learning Platform</h4>
+        <p>Java-based learning platform for kids offering interactive educational content, quizzes, and progress tracking.</p>
+        <button type="button" onclick="openPDF('./assets/kids_platform_new.pdf')">Check Project</button>
       </div>
     </div>
     <div class="project-card">
@@ -277,13 +285,15 @@ section.portfolio { padding: 60px 30px; text-align: center; }
       </div>
     </div>
     <div class="project-card">
-      <img src="./assets/kids_platform.jpg" alt="Project 4">
+      <img src="https://www.deskxpand.com/wp-content/uploads/2021/06/Image-Pasted-at-2021-6-8-11-051.png" alt="Project 1">
       <div class="content">
-        <h4>Kids Learning Platform</h4>
-        <p>Java-based learning platform for kids offering interactive educational content, quizzes, and progress tracking.</p>
-        <button type="button" onclick="openPDF('./assets/kids_platform_new.pdf')">Check Project</button>
+        <h4>Complaint Management System</h4>
+        <p>A system to register, escalate and resolve civic issues using PHP, MySQL and HTML.</p>
+        <button type="button" onclick="openPDF('./assets/my_portfoliopic(new).png')">Check Project</button>
       </div>
     </div>
+    
+    
   </div>
 </section>
 
@@ -349,6 +359,7 @@ section.portfolio { padding: 60px 30px; text-align: center; }
 
 </body>
 </html>
+
 
 
 
